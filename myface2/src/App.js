@@ -1,5 +1,5 @@
 import React from 'react';
-// import logo from './logo.svg';
+import logo from './newlogo-non-transparent.png';
 import './App.css';
 
 import {
@@ -14,26 +14,22 @@ function App() {
   return (
     <Router>
       
-    <div>{NavBar()}</div>  
+    <NavBar/>      
     
-    
-    
+    <Switch>        
+      <Route path="/users"> <Users /> </Route>
+      <Route path="/posts"> <Posts /> </Route>
+      <Route path="/">      <Home />  </Route>
+    </Switch>  
 
-    
-    <div>
-      <Switch>        
-        <Route path="/users"> <Users /> </Route>
-        <Route path="/posts"> <Posts /> </Route>
-        <Route path="/">      <Home />  </Route>
-      </Switch>
-
-    </div>
-
-    <div>{Footer()}</div>  
+    <Footer/>  
 
   </Router>
 
 );
+
+
+
 
 function Welcome(props){
 
@@ -74,7 +70,7 @@ function NavBar(){
       <nav>
         {/* TODO Logo */}
         
-        <Link to="/">Home</Link>        
+        <Link to="/"><img className="logo" src={logo} alt="logo"/></Link>        
         <Link to="/posts">Posts</Link>
         <Link to="/users">Users</Link>
 
