@@ -1,30 +1,26 @@
 import React from 'react';
 
+import { Link } from "react-router-dom";
 
-import {
-    Link
-  } from "react-router-dom";
+export default function WelcomePage() {
+    return (
+        <div className="Welcome-page">
+            <WelcomeMessage name={GetName()} />
+        </div>
+    )
+}
 
-
-export default function WelcomePage() {  
-    return (    
-      <div className="Welcome-page">
-        <WelcomeMessage name={GetName()} />          
-      </div>
-    ) 
-  }
-
-function WelcomeMessage(props){
+function WelcomeMessage(props) {
 
     let message = "Welcome to MyFace 2";
-  
-    if (props){
+
+    if (props) {
         message = "Welcome Back " + props.name
-    }  
-  
+    }
+
     return <h1><Link to="/home">{message}</Link></h1>
 }
-  
-function GetName(){  
+
+function GetName() {
     return "Dave" // TODO Flesh out once login/users is working
 }

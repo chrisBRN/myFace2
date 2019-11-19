@@ -1,0 +1,59 @@
+
+@mixin center-in-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+}
+
+$image_size: 360px;
+$post_margin: 10px;
+$post_width: calc($image_size + $post_margin);
+$avatar_width: 60px;
+
+.post {
+    position: relative;
+    width: $image_size;
+    padding: $post_margin;
+
+}
+.postImage {
+    //border-radius: 4%;
+    width: $image_size;
+    height: $image_size;
+}
+
+.messageText {
+
+    padding: 5%;
+    margin: 20px;
+}
+
+.avatarContainer {
+    position: relative;
+    text-align: center;    
+}
+
+.avatarText {
+    @include center-in-container();   
+    font-weight: bold;
+    color: white;
+    font-size: 30px;    
+}
+
+.avatarImage {
+    // @include center-in-container(); 
+   // border-radius: 50%;
+    
+    width: $avatar_width;
+    border: 2px solid black;
+}
+
+.sender {
+    position: absolute;
+    top: $avatar_width / 2;
+    margin-left: $avatar_width / 2;
+    
+    
+
+}
