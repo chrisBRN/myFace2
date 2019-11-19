@@ -1,35 +1,44 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import NavBar from './Sections/Header.js';
 import Footer from './Sections/Footer.js';
 
-export default function PostsPage() {   
-    return (
-      <div>
-        <NavBar/> 
-        {/* <GetPosts/> */}
-        <h2>Posts</h2>
-        
-        <Footer/>
-      </div>
-    )  
-  }
+import Post from './Sections/Post.js'
 
-
-
+export default function PostsPage() {    
   
-
-async function FetchJson(url){  
-  const response = await fetch(url);   
-  const json = await response.json();  
-  return JSON.stringify(json);
+  return (
+    <div>
+      <NavBar/> 
+      <h2>Posts</h2>     
+      <AllPosts/>    
+      <Footer/>
+    </div>
+  )  
 }
 
-function GetPosts(){
-  
-  let data = FetchJson("http://localhost:8080/api/posts"); 
+async function fetchPosts() {
+  const response = await fetch('http://localhost:8080/api/posts');
+  return await response.json();
+}
 
-  data.then(jsonString => console.log(jsonString))  
+function AllPosts(){
 
-return <div></div>
+  const [posts, setPosts] = useState([]);
+
+  useEffect(
+    () => {fetchPosts().then(response => setPosts(response.items))}, 
+    []
+  )    
+
+  const allPosts = posts.map((post) => 
+    <Post key={post.id}
+          value={post}/>  
+  )
+
+  return (
+    <div>      
+      {allPosts}
+    </div> 
+  )
 }

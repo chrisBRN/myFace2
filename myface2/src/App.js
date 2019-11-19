@@ -10,8 +10,7 @@ import './Styles/App.scss';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route  
 } from "react-router-dom";
 
 function App() {  
@@ -25,28 +24,6 @@ function App() {
     </Switch> 
   </Router>
 );
-
-
-
-
-
-async function FetchJson(url){  
-  const response = await fetch(url);   
-  const json = await response.json();  
-  return JSON.stringify(json);
-}
-
-function GetPosts(){
-  
-  let data = FetchJson("http://localhost:8080/api/posts"); 
-
-  data.then(jsonString => console.log(jsonString))  
-
-return <div></div>
-}
-
-
-
 
 }
 export default App;

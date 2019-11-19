@@ -4,9 +4,7 @@ import logo from '../../Resources/newlogo-non-transparent.png'
 
 
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
+   
     Link
   } from "react-router-dom";
 
