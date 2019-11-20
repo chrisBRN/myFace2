@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import NavBar from './Sections/Header.js';
+import Header from './Sections/Header.js';
 import Footer from './Sections/Footer.js';
 
 import Post from './Sections/Post.js'
@@ -9,7 +9,7 @@ export default function PostsPage() {
 
     return (
         <div>
-            <NavBar />
+            <Header />
             <h2>Posts</h2>
             <AllPosts />
             <Footer />

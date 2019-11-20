@@ -3,12 +3,9 @@ import React from 'react';
 import logo from '../../Resources/newlogo-non-transparent.png'
 
 
-import {
+import { Link } from "react-router-dom";
 
-    Link
-} from "react-router-dom";
-
-export default function NavBar() {
+export default function Header() {
     return (
         <div className="Nav-bar" id="Header-nav-bar">
             <nav>

@@ -2,14 +2,14 @@ import React from 'react';
 
 import Header from './Sections/Header.js';
 import Footer from './Sections/Footer.js';
+import User from './Sections/User.js'
 
-
-export default function HomePage() {
+export default function UserPage() {
     return (
         <div>
             <Header />            
-            <h2 className="Page-Title">Home</h2>
+            <User />
             <Footer />
         </div>
     )
-}
+} 

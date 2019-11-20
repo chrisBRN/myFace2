@@ -6,6 +6,14 @@
     transform: translate(-50%, -50%);    
 }
 
+@mixin avatar-text {
+    @include center-in-container();   
+    font-weight: bold;
+    color: white;
+    font-size: 30px;
+    top: $avatar_width / 2;    
+}
+
 $image_size: 360px;
 $post_margin: 10px;
 $post_width: calc($image_size + $post_margin);
@@ -17,8 +25,7 @@ $avatar_width: 60px;
     padding: $post_margin;
 
 }
-.postImage {
-    //border-radius: 4%;
+.postImage {    
     width: $image_size;
     height: $image_size;
 }
@@ -34,26 +41,15 @@ $avatar_width: 60px;
     text-align: center;    
 }
 
-.avatarText {
-    @include center-in-container();   
-    font-weight: bold;
-    color: white;
-    font-size: 30px;    
-}
-
-.avatarImage {
-    // @include center-in-container(); 
-   // border-radius: 50%;
-    
+.avatarImage { 
     width: $avatar_width;
     border: 2px solid black;
 }
 
 .sender {
-    position: absolute;
-    top: $avatar_width / 2;
-    margin-left: $avatar_width / 2;
-    
-    
+    @include avatar-text();      
+}
 
+.receipient {
+    @include avatar-text(); 
 }
