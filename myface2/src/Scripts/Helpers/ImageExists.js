@@ -18,7 +18,7 @@ export default function TempImage(props){
         () => { 
             ImageExists(props.src)
                 .then(exists => { if (exists) { setSRC(props.src) } } )},
-        [] //- React Hook useEffect has a missing dependency: 'props.src'. Either include it or remove the dependency array.
+        [props.src]
     )
 
     return  (    
