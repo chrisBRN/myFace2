@@ -1,0 +1,44 @@
+
+
+.hero{
+    position: relative;
+    min-height: 240px;
+    
+}
+
+.bannerImage {
+
+    position: absolute; 
+    height: 240px;
+    
+    width: 90%;
+    margin: 10px;
+    border: solid 4px white;
+
+}
+
+.profileImage {
+
+    position: absolute; 
+    left: 10px + 40px;
+    top: 169px;
+
+    width: 120px;
+    border: solid 4px white;
+    
+}
+
+.username {
+    position: absolute;
+    color: #282c34;
+    
+    font-size: 120px;
+
+    margin-left: 200px;
+        
+    top: 44px;
+  
+
+    
+}
+
