@@ -8,7 +8,7 @@ export default function Post(props) {
     let post = props.value;
 
     return (
-
+        //TODO this is causing a memory leak...
         <div className="post">
             <Avatar className="sender" details={post.sender} />
             <TempImage className="postImage" src={post.image} />
