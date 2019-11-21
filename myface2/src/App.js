@@ -22,7 +22,7 @@ function App() {
       <Route path="/users"> <UsersPage /> </Route>      
       <Route path="/posts"> <PostsPage /> </Route>
       <Route path="/home">  <HomePage /> </Route>
-      <Route path="/">      <WelcomePage/> </Route>
+      <Route exact path="/">      <WelcomePage/> </Route>
     </Switch> 
   </Router>
 );

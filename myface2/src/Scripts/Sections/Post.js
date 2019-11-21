@@ -10,9 +10,11 @@ export default function Post(props) {
     return (
         //TODO this is causing a memory leak...
         <div className="post">
-            <Avatar className="sender" details={post.sender} />
-            <TempImage className="postImage" src={post.image} />
-            <Avatar className="receipient" details={post.receiver} />
+            <div className="postBody">
+                <Avatar className="sender" details={post.sender} />
+                <TempImage className="postImage" src={post.image} />
+                <Avatar className="receipient" details={post.receiver} />
+            </div>
             <MessageText details={post.message} />
         </div>
     );
@@ -24,10 +26,12 @@ function Avatar(props) {
     let image = props.details.profileImage;
 
     return (
-        <div className="avatar">
-            <Link to={"users/" + props.details.id}>
-                <TempImage className="avatarImage" src={image} />
-                <div className={props.className}> {initals} </div>                
+        <div className={props.className}>
+            <Link to={"/users/" + props.details.id}>
+
+                <TempImage className="avatarImage" src={image} /> 
+                <div className="avatarText">{initals}</div>    
+
             </Link>
         </div>
     );
@@ -35,6 +39,11 @@ function Avatar(props) {
 
 function MessageText(props) {
     return (
-        <div className="messageText">{props.details}</div>
+        <div className="messageText">
+            <details>
+                <summary>More</summary>
+                <p>{props.details}</p>
+            </details>
+        </div>
     );
 }

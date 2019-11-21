@@ -9,27 +9,30 @@
 @mixin avatar-text {
     @include center-in-container();   
     font-weight: bold;
-    color: #345;
+    color: white;
     font-size: 30px;
     top: $avatar_width / 2;    
 }
 
 $image_size: 360px;
 $post_margin: 10px;
+$post_padding: 20px;
 $post_width: calc($image_size + $post_margin);
 $avatar_width: 60px;
 
 .post {
-    position: relative;
-    width: $image_size;
-    padding: $post_margin;    
+    
+    width: $image_size;    
 
     background-color: #fff;
-	border-radius: 4px;
-	max-width: 400px;
-	margin: 10% auto;	
+    border-radius: 4px;	
+    
+    margin-left: 2.5%;	
+    margin-right: 2.5%;	
+    margin-top: 2.5%;
+
 	position: relative;
-	padding: 34px;
+	padding: $post_padding;
 	color: #444;
 
     &:before {
@@ -52,35 +55,45 @@ $avatar_width: 60px;
             box-shadow: 0 0 80px lighten(#000, 60%);
         }
     }
-
 }
-.postImage {    
+
+.postBody {
+    position: relative;
+}
+
+.postImage {  
+       
     width: $image_size;
     height: $image_size;
 }
 
-.messageText {
-
-    padding: 5%;
-    margin: 20px;
-}
-
-.avatar {
-    position: relative;
-    
-}
-
 .avatarImage { 
-    width: $avatar_width;
-    border: 2px solid #345;
     
+    width: $avatar_width;
+    border: 4px solid white;    
+}
+.avatarText {    
+    @include avatar-text(); 
 }
 
 .sender {
-    @include avatar-text();    
-    
+    position: absolute;
+    left: $post_padding;
+    top: $post_padding;
 }
 
 .receipient {
-    @include avatar-text(); 
+    position: absolute;
+    right: $post_padding;
+    bottom: $post_padding;
 }
+
+.messageText {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+summary {   
+    margin-left: -10px;
+}
+

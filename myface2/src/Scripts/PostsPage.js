@@ -12,7 +12,6 @@ export default function PostsPage() {
     return (
         <div>
             <Header />
-            <h2>Posts</h2>
             <AllPosts />
             <Footer />
         </div>
