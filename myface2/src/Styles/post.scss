@@ -9,7 +9,7 @@
 @mixin avatar-text {
     @include center-in-container();   
     font-weight: bold;
-    color: white;
+    color: #345;
     font-size: 30px;
     top: $avatar_width / 2;    
 }
@@ -22,7 +22,36 @@ $avatar_width: 60px;
 .post {
     position: relative;
     width: $image_size;
-    padding: $post_margin;
+    padding: $post_margin;    
+
+    background-color: #fff;
+	border-radius: 4px;
+	max-width: 400px;
+	margin: 10% auto;	
+	position: relative;
+	padding: 34px;
+	color: #444;
+
+    &:before {
+		content: '';
+		display: block;
+		position: absolute;
+		background-color: #ccc;
+		left: 20px;
+		right: 20px;
+		bottom: 0;
+		top: 50%;
+		z-index: -1;
+		box-shadow: 0 0 40px lighten(#000, 60%);       
+        
+        transition: box-shadow .2s ease-in-out;
+    }
+
+    &:hover {
+        &:before {
+            box-shadow: 0 0 80px lighten(#000, 60%);
+        }
+    }
 
 }
 .postImage {    
@@ -36,18 +65,20 @@ $avatar_width: 60px;
     margin: 20px;
 }
 
-.avatarContainer {
+.avatar {
     position: relative;
-    text-align: center;    
+    
 }
 
 .avatarImage { 
     width: $avatar_width;
-    border: 2px solid black;
+    border: 2px solid #345;
+    
 }
 
 .sender {
-    @include avatar-text();      
+    @include avatar-text();    
+    
 }
 
 .receipient {

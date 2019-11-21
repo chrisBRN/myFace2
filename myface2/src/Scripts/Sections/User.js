@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
-import TempImage from '../Helpers/ImageExists.js'
-import Post from '../Sections/Post.js'
+import TempImage from '../Helpers/ImageExists.js';
+import { fetchUserSingleInfo, fetchPosts} from '../Helpers/APIFetchers.js';
+import Post from '../Sections/Post.js';
 
 import '../../Styles/user.scss';
-
-
-async function fetchUserInfo(param) {
-    const response = await fetch('http://localhost:8080/api/users/' + param);
-    return await response.json();
-}
 
 export default function User(){       
     
@@ -18,7 +13,7 @@ export default function User(){
     const [userInfo, setUserInfo] = useState(null);
 
     useEffect(
-        () => { fetchUserInfo(userId).then(response => setUserInfo(response)) },
+        () => { fetchUserSingleInfo(userId).then(response => setUserInfo(response)) },
         [userId]
     );
     
@@ -40,49 +35,38 @@ export default function User(){
              </div>
         </div>
     );
-
-
 }
 
-
-async function fetchPosts(pageNumber) {
-    const response = await fetch('http://localhost:8080/api/posts?page=' + pageNumber);
-    return await response.json();
-}
-
-function AllUserPosts(userId) {
-
-    const [posts, setPosts] = useState([]);
-    const [posts2, setPosts2] = useState([]);
-    const [posts3, setPosts3] = useState([]);
-
+function AllUserPosts(props) {   
+    
+    let {userId} = useParams();
+    
+    const [postsSender, setSendPosts] = useState([]);  
+    const [postsReciever, setRecPosts] = useState([]);  
+   
     useEffect(
-        () => {
-            fetchPosts(1).then(response => setPosts(response.items))
-            fetchPosts(2).then(response => setPosts2(response.items))
-            fetchPosts(3).then(response => setPosts3(response.items))
+        () => {             
+            setSendPosts([]);
+            setRecPosts([]);
+
+            fetchPosts('senderId', userId).then(response => setSendPosts(response.items));
+            fetchPosts('receiverId', userId).then(response => setRecPosts(response.items));            
         },
-        []
-    );
+        [userId]
+    )   
 
-    const allPosts = posts.map((post) => <Post key={post.id} value={post} />)
-
-    allPosts.push(posts2.map((post) => <Post key={post.id} value={post} />))
-    allPosts.push(posts3.map((post) => <Post key={post.id} value={post} />))
-
-    const userPosts = [];
-
- 
-
-
+    const output = 
+        postsSender
+            .concat(postsReciever)
+            .map(
+                    (post) => <Post key={post.id} value={post} />
+                );    
 
     return (
         <div>
-            {userPosts}
+            {output}
         </div>
     )
-
-
 }
 
 

@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import placeholder_avatar from '../../Resources/placeholder_avatar.png';
 
-async function ImageExists(url){
-    try {
-        const response = await fetch(url);
-        return response.ok;
-    } catch (error){
-        return false;
-    }
+async function ImageExists(url){   
+    const response = await fetch(url);
+
+    console.log("REQUESTING " + url);
+
+    return response.ok;    
 }
 
 export default function TempImage(props){
@@ -22,6 +21,6 @@ export default function TempImage(props){
     )
 
     return  (    
-        <img className={props.className} src={src} alt={props.className}></img>
+        <img className={props.className} src={src} alt={props.className}/>
     );
 }

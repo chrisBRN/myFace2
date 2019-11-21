@@ -24,7 +24,7 @@ function Avatar(props) {
     let image = props.details.profileImage;
 
     return (
-        <div className="avatarContainer">
+        <div className="avatar">
             <Link to={"users/" + props.details.id}>
                 <TempImage className="avatarImage" src={image} />
                 <div className={props.className}> {initals} </div>                
