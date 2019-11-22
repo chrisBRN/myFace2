@@ -19,6 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+
+    
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,5 +39,7 @@
   },
   "devDependencies": {
     "jest": "^24.9.0"
-  }
+  }  
+  
+
 }
