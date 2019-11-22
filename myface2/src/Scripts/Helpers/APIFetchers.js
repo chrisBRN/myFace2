@@ -1,5 +1,5 @@
 
-import {loggedInUserId} from '../TEMPCONSTANTS';
+import {loggedInUserId} from './TEMPCONSTANTS';
 
 
 

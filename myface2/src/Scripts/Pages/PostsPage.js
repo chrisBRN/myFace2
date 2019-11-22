@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-import Header from './Sections/Header.js';
-import Footer from './Sections/Footer.js';
+import Header from '../Sections/Header.js';
+import Footer from '../Sections/Footer.js';
 
-import { fetchSinglePageOfPosts } from './Helpers/APIFetchers.js';
+import { fetchSinglePageOfPosts } from '../Helpers/APIFetchers.js';
 
-import Post from './Sections/Post.js'
+import Post from '../Sections/Post.js'
 
 export default function PostsPage() {
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import Header from './Sections/Header.js';
-import Footer from './Sections/Footer.js';
-import TempImage from './Helpers/ImageExists.js'
+import Header from '../Sections/Header.js';
+import Footer from '../Sections/Footer.js';
+import TempImage from '../Helpers/ImageExists.js'
 
 import { Link } from "react-router-dom";
 

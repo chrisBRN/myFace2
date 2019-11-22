@@ -1,10 +1,10 @@
 import React from 'react';
 
-import WelcomePage from './Scripts/WelcomePage.js';
-import HomePage from './Scripts/HomePage.js';
-import PostsPage from './Scripts/PostsPage';
-import UsersPage from './Scripts/UsersPage';
-import UserPage from './Scripts/UserPage';
+import WelcomePage from './Scripts/Pages/WelcomePage.js';
+import HomePage from './Scripts/Pages/HomePage.js';
+import PostsPage from './Scripts/Pages/PostsPage';
+import UsersPage from './Scripts/Pages/UsersPage';
+import UserPage from './Scripts/Pages/UserPage';
 
 import './Styles/App.scss';
 

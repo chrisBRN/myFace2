@@ -7,6 +7,8 @@ import { createMessage } from '../Helpers/APIFetchers'
 
 export default function MessageForm(){
 
+    // TODO use https://reactjs.org/docs/forms.html
+
     const { register, handleSubmit } = useForm();
     let {userId} = useParams();
 
@@ -29,24 +31,3 @@ export default function MessageForm(){
         </div>       
     )
 }
-
-
-// function createMessage(values, recieverId){
-
-    
-
-
-
-// }
-
-// fetch('https://mywebsite.com/endpoint/', {
-//   method: 'POST',
-//   headers: {
-//     'Accept': 'application/json',
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     firstParam: 'yourValue',
-//     secondParam: 'yourOtherValue',
-//   })
-// })
